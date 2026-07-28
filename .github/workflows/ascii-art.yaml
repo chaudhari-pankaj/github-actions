@@ -1,0 +1,19 @@
+name : ascii-art
+
+on : push
+
+jobs :
+  generate-ascii-art :
+    runs-on : ubuntu-latest
+    steps : 
+      - name : checkout repo
+        uses : actions/checkout@v7.0.1
+
+      - name : install cowsay
+        run : sudo apt install cowsay
+
+      - name : generate art
+        run : cowsay 'hellooooooo!!!!' > cow-art.txt
+
+      - name : display art
+        run : cat cow-art.txt
