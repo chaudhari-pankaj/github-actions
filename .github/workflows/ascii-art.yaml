@@ -17,3 +17,6 @@ jobs :
 
       - name : display art
         run : cat cow-art.txt
+      
+      - name : list out repo
+        run : ls -lah
