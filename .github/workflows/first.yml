@@ -10,5 +10,3 @@ jobs :
       run : echo "hello world!!"
     - name : list out all the files
       run : ls -lah
-    - name : read files
-      run : cat README.md 
