@@ -9,14 +9,5 @@ jobs :
       - name : checkout repo
         uses : actions/checkout@v7.0.1
 
-      - name : install cowsay
-        run : sudo apt install cowsay
-
-      - name : generate art
-        run : cowsay 'hellooooooo!!!!' > cow-art.txt
-
-      - name : display art
-        run : cat cow-art.txt
-      
-      - name : list out repo
-        run : ls -lah
+      - name : run ascii script
+        run : scripts/ascii-script.sh
