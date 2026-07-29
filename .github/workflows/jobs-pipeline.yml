@@ -1,0 +1,30 @@
+name : jobs-pipeline
+
+on : push
+
+jobs :
+  job-one :
+    runs-on : ubuntu-latest
+    steps : 
+      - name : display job
+        run : echo "job-one"
+
+  job-two : 
+    needs : job-one
+    runs-on : ubuntu-latest
+    steps : 
+      - name : display job
+        run : echo "job-two"
+  
+  job-three :
+    runs-on : ubuntu-latest
+    steps : 
+      - name : display job
+        run : echo "job-three"
+
+  job-four :
+    needs : [job-two, job-three]
+    runs-on : ubuntu-latest
+    steps : 
+      - name : display job
+        run : echo "job-four"
