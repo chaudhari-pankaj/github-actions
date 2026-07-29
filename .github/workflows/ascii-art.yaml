@@ -12,8 +12,5 @@ jobs :
       - name : list out contents
         run : ls -lah
 
-      - name : give permission to execute script
-        run : chmod u+x scripts/ascii-script.sh
-
       - name : run ascii script
-        run : scripts/ascii-script.sh
+        run : bash scripts/ascii-script.sh
