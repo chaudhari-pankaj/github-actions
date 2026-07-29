@@ -9,5 +9,11 @@ jobs :
       - name : checkout repo
         uses : actions/checkout@v7.0.1
 
+      - name : list out contents
+        run : ls -lah
+
+      - name : give permission to execute script
+        run : chmod u+x scripts/ascii-script.sh
+
       - name : run ascii script
         run : scripts/ascii-script.sh
