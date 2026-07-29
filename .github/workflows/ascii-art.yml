@@ -13,7 +13,7 @@ jobs :
         run : ls -lah
 
       - name : give the script execute access
-        run : chmod +x scripts/ascii-scripts.sh
+        run : chmod +x scripts/ascii-script.sh
 
       - name : run ascii script
         run :  scripts/ascii-script.sh
