@@ -1,0 +1,22 @@
+name : multiple-jobs
+
+on : push
+
+jobs :
+  job-one :
+    runs-on : ubuntu-latest
+    steps : 
+      - name : display job
+        run : echo "job-one"
+  
+  job-two : 
+    runs-on : ubuntu-latest
+    steps : 
+      - name : display job
+        run : echo "job-two"
+  
+  job-three : 
+    runs-on : ubuntu-latest
+    steps :
+      - name : display job
+        run : echo "job-three"
