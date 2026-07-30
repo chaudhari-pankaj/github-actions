@@ -1,0 +1,11 @@
+name : triggering-workflows
+
+on : 
+  workflow-dispatch : 
+
+jobs :
+  job-one :
+    runs-on : ubuntu-latest
+    steps :
+      - name : display message
+        run : echo "this workflow was triggered manually"
