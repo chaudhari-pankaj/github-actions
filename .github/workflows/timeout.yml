@@ -1,0 +1,17 @@
+name : timeout-test
+
+on : push
+
+jobs : 
+  test-timeout : 
+    runs-on : ubuntu-latest
+    timeout-minutes : 1
+    steps :
+      - name : mark job start
+        run : echo "job started"
+      
+      - name : delay by 90 seconds
+        run : sleep 90
+
+      - name : mark job end
+        run : echo "job completed"
