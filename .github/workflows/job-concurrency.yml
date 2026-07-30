@@ -1,0 +1,20 @@
+name : job-concurrency
+
+on :
+  workflow_dispatch : 
+
+jobs :
+  job-one :
+    concurrency :
+      group : concurrency-trial
+      cancel-in-progress : true
+    runs-on : ubuntu-latest
+    steps : 
+      - name : mark job start
+        run : echo "job started"
+      
+      - name : delay
+        run : sleep 60
+
+      - name : mark job end
+        run : echo "job completed"
