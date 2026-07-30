@@ -1,0 +1,14 @@
+name : scheduled-workflow
+
+on : 
+  schedule :
+    - cron : "0 15 30 * *"
+
+jobs : 
+  job-one :
+    runs-on : ubuntu-latest
+    steps :
+      - name : display message
+        run : |
+          echo "this is a scheduled workflow"
+          echo "today is 30th of the month"
