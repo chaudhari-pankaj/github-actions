@@ -3,23 +3,23 @@ name : environment-variables
 on : push
 
 env :
-  workflow-level-secret : workflow-level
+  WORKFLOW_LEVEL_SECRET : workflow-level
 
 jobs :
   job-one :
     runs-on : ubuntu-latest
     env :
-      job-level-secret : job-level
+      JOB_LEVEL_SECRET : job-level
     steps : 
       - name : step-one
         env : 
-          step-level-secret : step-level
-        run : echo $workflow-level-secret ${{env.job-level-secret}} $step-level-secret
+          STEP_LEVEL_SECRET : step-level
+        run : echo $WORKFLOW_LEVEL_SECRET ${{env.JOB_LEVEL_SECRET}} $STEP-LEVEL-SECRET
       - name : step-two
-        run : echo $workflow-level-secret $job-level-secret
+        run : echo $WORKFLOW_LEVEL_SECRET $JOB_LEVEL_SECRET
     
   job-two : 
     runs-on : ubuntu-latest
     steps : 
       - name : step-one
-        run : echo $workflow-level-secret
+        run : echo $WORKFLOW_LEVEL_SECRET
