@@ -1,0 +1,24 @@
+name : matrix-strategy
+
+on : push
+
+jobs : 
+  deploy : 
+    strategy :
+      fail-fast : false
+      max-parallel : 5
+      matrix : 
+        os : [ubuntu-latest, windows-latest]
+        images : [hello-world, alpine]
+      exclude : 
+        images : alpine
+        os : windows-latest
+      include : 
+        images : debian
+        os : ubuntu-20.04
+    steps :
+      - name : display docker info
+        run : docker info
+
+      - name : run ${{matrix.images}} on ${{matrix.os}}
+        run : docker run ${{matrix.images}} 
