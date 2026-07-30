@@ -16,6 +16,7 @@ jobs :
       include : 
         images : debian
         os : ubuntu-20.04
+    runs-on : ${{matrix.os}}
     steps :
       - name : display docker info
         run : docker info
