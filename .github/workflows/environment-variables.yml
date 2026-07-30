@@ -23,3 +23,12 @@ jobs :
     steps : 
       - name : step-one
         run : echo $WORKFLOW_LEVEL_SECRET
+  
+  job-three :
+    runs-on : ubuntu-latest
+    steps : 
+      - name : read repo vars
+        run : echo repo variable - ${{vars.REPO_VAR}}
+      
+      - name : read repo secrets
+        run : echo repo secret - ${{secrets.REPO_SECRET}}
