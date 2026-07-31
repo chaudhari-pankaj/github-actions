@@ -1,0 +1,44 @@
+name : expressions
+
+on : push
+
+jobs : 
+  build :
+    runs-on : ubuntu-latest
+    steps : 
+      - name : install cowsay
+        run : sudo apt install cowsay
+    
+      - name : create artwork
+        run : cowsay "mooo ig" > ascii-art.txt
+
+      - name : upload-artifact
+        uses : actions/upload-artifact@v7.0.1
+        with : 
+          name : ascii-art
+          path : ascii-art.txt 
+
+  test :
+    needs : build
+    runs-on : ubuntu-latest
+    steps : 
+      - name : download-artifact
+        uses : actions/download-artifact@v8.0.1
+        with :
+          name : ascii-art
+      
+      - name : check existance
+        run : grep -i "moo" ascii-art.txt
+    
+  deploy :
+    if : ${{github.ref == 'refs/heads/main'}}
+    needs : test
+    runs-on : ubuntu-latest
+    steps : 
+      - name : download-artifact
+        uses : actions/download-artifact@v8.0.1
+        with :
+          name : ascii-art
+      
+      - name : display art
+        run : cat ascii-art.txt
