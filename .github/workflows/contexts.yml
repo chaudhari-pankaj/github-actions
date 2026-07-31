@@ -1,0 +1,19 @@
+name : contexts
+
+on : push
+
+jobs :
+  explore-contexts : 
+    runs-on : ubuntu-latest
+    steps : 
+      - name : display jobs context
+        run : echo ${{toJson(jobs)}}
+      
+      - name : display steps context
+        run : echo ${{toJson(steps)}}
+
+      - name : display vars context
+        run : echo ${{vars}}
+      
+      - name : display secrets context
+        run : echo ${{secrets}}
