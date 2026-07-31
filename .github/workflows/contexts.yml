@@ -7,13 +7,16 @@ jobs :
     runs-on : ubuntu-latest
     steps : 
       - name : display jobs context
-        run : echo ${{toJson(jobs)}}
+        run : echo ${{toJson(job)}}
       
       - name : display steps context
         run : echo ${{toJson(steps)}}
 
       - name : display vars context
-        run : echo ${{vars}}
+        run : echo ${{toJson(vars)}}
       
       - name : display secrets context
-        run : echo ${{secrets}}
+        run : echo ${{toJson(secrets)}}
+
+      - name : display runner context
+        run : echo ${{toJson(runner)}}
