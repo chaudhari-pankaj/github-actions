@@ -8,7 +8,7 @@ on :
     paths-ignore :
       - "README.md"
 
-  pull-request : 
+  pull_request : 
     types :
       - opened
     branches : 
