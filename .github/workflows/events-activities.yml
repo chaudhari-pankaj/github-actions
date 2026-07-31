@@ -1,0 +1,24 @@
+name : activities-events
+
+on :
+  push : 
+    branches :
+      - main
+      - "!feature/*"
+    paths-ignore :
+      - "README.md"
+
+  pull-request : 
+    types :
+      - opened
+    branches : 
+      - main
+    paths-ignore :
+      - "README.md"  
+
+jobs : 
+  job-one : 
+    runs-on : ubuntu-latest
+    steps : 
+      - name : mention event name
+        run : echo event name "${{github.event_name}}"
