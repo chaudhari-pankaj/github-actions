@@ -8,6 +8,9 @@ jobs :
     steps :
       - name : mark job run
         run : echo "job started"
-      
+
+      - name : mark job in progress
+        run : echo "job in progress..."
+
       - name : mark job end
         run : echo "job completed"
