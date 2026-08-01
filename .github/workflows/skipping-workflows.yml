@@ -1,0 +1,13 @@
+name : skipping-workflows
+
+on : push
+
+jobs :
+  job-one :
+    runs-on : ubuntu-latest
+    steps :
+      - name : mark job run
+        run : echo "job started"
+      
+      - name : mark job end
+        run : echo "job completed"
